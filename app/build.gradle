@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "modulebug.databinding.test.com.mydatabindingapplication_bug"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+//    implementation 'com.android.support:appcompat-v7:26.0.1'
+//    implementation project(path: ':mylibrary')
+    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile project(path: ':mylibrary')
+}
+repositories {
+    mavenCentral()
+}
